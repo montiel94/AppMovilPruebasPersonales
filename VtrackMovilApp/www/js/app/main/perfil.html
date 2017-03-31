@@ -1,0 +1,29 @@
+<ion-view view-title="Perfil">
+    <ion-content>
+        <div class="card">
+                <div class="infoLeft">
+                    <a class="item item-icon-left">
+                        <i class="icon ion-android-person"></i>
+                        Perfil
+                    </a>
+                    <ion-item>
+                    <p>Nombre de la empresa : {{usuario.nombreempresa}}<p>
+                    <p>Correo : {{usuario.username}}</p>
+                    <p>Estado : {{usuario.estadoUsuario}}</p>
+                    </ion-item>
+                </div>
+            
+        </div>
+        
+        <div class="card">
+                <div class="infoLeft">
+                    <a class="item item-icon-left" ui-sref="app.modificarpassword">
+                        <i class="icon ion-edit"></i>
+                        Modificar contraseña
+                    </a>
+                </div>
+            
+        </div>
+    </ion-content>
+</ion-view>
+

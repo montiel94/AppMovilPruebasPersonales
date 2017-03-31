@@ -1,0 +1,15 @@
+/* Empty. Add your own CSS if you like */
+.pfechaCreacion{
+    position: absolute;
+    bottom: 15px;
+}
+
+.pEstado{
+    position: absolute;
+    bottom: 42px;
+}
+
+.background-login
+{
+    background-color: #3ca2e0;
+}

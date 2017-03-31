@@ -1,0 +1,47 @@
+<ion-view view-title="Detalle de pedido">
+    <ion-content>
+        <div class="card">
+                <div class="infoLeft">
+                    <a class="item item-icon-left" href="#">
+                        <i class="icon ion-android-clipboard"></i>
+                        Información
+                    </a>
+                    <ion-item>
+                    <p>Codigo del pedido : {{pedido.codigoPedido}}<p>
+                    <p>Conductor : {{pedido.chofer}}</p>
+                    <p>Estado : {{pedido.estado}}</p>
+                    <p>Fecha de creacion : {{pedido.fechaCreacion}}</p>
+                    </ion-item>
+                </div>
+            
+        </div>
+        
+        
+        <div class="card">
+            <div class="infoLeft">
+                <a class="item item-icon-left" href="#">
+                        <i class="icon ion-android-bus"></i>
+                        Vehiculo de Transporte
+                </a>
+                <ion-item>    
+                        <p>Placa de la sisterna : {{pedido.cola}}<p>
+                        <p>Placa de chuto : {{pedido.cabezote}}</p>
+                </ion-item>
+            </div>
+        </div>
+        
+        
+        <div  class="card">
+            <div class="infoLeft">
+                <a class="item item-icon-left" href="#">
+                        <i class="icon ion-clock"></i>
+                        Eventos del pedido
+                </a>
+                <ion-item>
+                        <p ng-repeat="evento in pedido.eventos">{{evento.mensaje}} : {{evento.tiempo}}</p>
+                </ion-item>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+
