@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'ngCordova','starter.controllers','PedidosModule','ServicesModule','DetalladoPedidoModule','ModificarPasswordModule','PerfilModule','LoginModule'])
-.constant("BASE_URL", "http://192.168.0.108:8080/webservice.servicio/api")
+.constant("BASE_URL", "http://192.168.0.104:8080/webservice.servicio/api")
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -20,6 +20,35 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers','PedidosMo
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+      
+      
+      //FCMPlugin.subscribeToTopic('montiel94');
+      
+    FCMPlugin.getToken(
+  function(token){
+    console.log(token);
+  },
+  function(err){
+    console.log('error retrieving token: ' + err);
+  });
+      
+      FCMPlugin.onNotification(
+  function(data){
+    if(data.wasTapped){
+      //Notification was received on device tray and tapped by the user.
+      console.log( JSON.stringify(data) );
+    }else{
+      //Notification was received in foreground. Maybe the user needs to be notified.
+      console.log( JSON.stringify(data) );
+    }
+  },
+  function(msg){
+    console.log('onNotification callback successfully registered: ' + msg);
+  },
+  function(err){
+    console.log('Error registering onNotification callback: ' + err);
+  }
+);
   });
 })
 

@@ -75,6 +75,8 @@ function LoginController($scope,$cordovaToast,$rootScope,LoginService,$state)
                 var error = data;
                 $rootScope.tokenAuth = data.valor;
                 $rootScope.correouser = view.correo;
+                //FCMPlugin.subscribeToTopic('montiel94');
+                registrarFCM();
                 $state.go( 'app.pedidos' );
             })
             .catch(function (error) {
@@ -82,5 +84,11 @@ function LoginController($scope,$cordovaToast,$rootScope,LoginService,$state)
                 mostrarError(error,'long','bottom');
             });
         console.log('saliendo del metodo authRecibidoSolicitarToken');
+    }
+    
+    function registrarFCM(){
+        var correo = view.correo;
+        var fcm = correo.replace("@","~");
+        FCMPlugin.subscribeToTopic(fcm);
     }
 }
